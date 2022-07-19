@@ -1,0 +1,10 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+:root {
+	--text1: aliceblue;
+	--main: rgb(255, 0, 106);
+	--dark: rgb(39, 39, 39);
+}

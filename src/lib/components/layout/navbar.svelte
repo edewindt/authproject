@@ -17,16 +17,35 @@
 	};
 </script>
 
-<ul class="nav justify-content-end bg-dark">
-	<li class="nav-item">
-		<a class="nav-link" aria-current="page" href="/">Home</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" target="_blank" href="/">My Website</a>
-	</li>
-	{#if $isLoggedIn}
+<nav>
+	<ul>
 		<li class="nav-item">
-			<a class="nav-link" on:click|preventDefault={logout} target="_blank" href="/">Sign Out</a>
+			<a class="nav-link" aria-current="page" href="/">Home</a>
 		</li>
-	{/if}
-</ul>
+
+		{#if $isLoggedIn}
+			<li class="nav-item">
+				<a class="nav-link" target="_blank" href="/">Search</a><input type="text" />
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" on:click|preventDefault={logout} target="_blank" href="/">Sign Out</a>
+			</li>
+		{/if}
+	</ul>
+</nav>
+
+<style>
+	ul {
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem;
+	}
+	li,
+	a {
+		list-style: none;
+		text-decoration: none;
+	}
+	nav {
+		background-color: var(--dark);
+	}
+</style>
