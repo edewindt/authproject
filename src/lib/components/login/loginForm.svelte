@@ -102,7 +102,6 @@
 		align-items: center;
 		font-size: 1.4rem;
 		color: var(--text1);
-		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	}
 	a {
 		text-decoration: none;

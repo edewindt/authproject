@@ -1,9 +1,10 @@
-<div class="center"><p>HELLO WORLD!</p></div>
+<script>
+	import Hero from '../lib/components/hero.svelte';
+	import Content from '../lib/components/content.svelte';
+	import { isLoggedIn } from './stores/authStore';
+</script>
 
-<style>
-	.center {
-		display: flex;
-		height: 30vh;
-		align-items: center;
-	}
-</style>
+<Hero />
+{#if $isLoggedIn}
+	<Content />
+{/if}

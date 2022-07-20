@@ -22,11 +22,12 @@
 </script>
 
 <div class="stick"><Navbar /></div>
-><slot />
+<slot />
 
 <style>
 	.stick {
 		position: fixed;
 		width: 100%;
+		z-index: 2;
 	}
 </style>
