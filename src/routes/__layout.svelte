@@ -21,5 +21,12 @@
 	});
 </script>
 
-<Navbar />
-<slot />
+<div class="stick"><Navbar /></div>
+><slot />
+
+<style>
+	.stick {
+		position: fixed;
+		width: 100%;
+	}
+</style>

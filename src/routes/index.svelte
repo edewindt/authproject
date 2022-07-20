@@ -1,8 +1,9 @@
-<p>HELLO WORLD!</p>
+<div class="center"><p>HELLO WORLD!</p></div>
 
 <style>
-	body {
-		padding: 0;
-		margin: 0;
+	.center {
+		display: flex;
+		height: 30vh;
+		align-items: center;
 	}
 </style>

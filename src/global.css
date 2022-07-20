@@ -8,3 +8,8 @@
 	--main: rgb(255, 0, 106);
 	--dark: rgb(39, 39, 39);
 }
+li,
+a {
+	list-style: none;
+	text-decoration: none;
+}
