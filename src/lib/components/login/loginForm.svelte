@@ -6,7 +6,7 @@
 		createUserWithEmailAndPassword
 	} from 'firebase/auth';
 	export let title;
-
+	import tree from '$lib/assets/tree.jpg';
 	const auth = getAuth();
 
 	const login = () => {
@@ -86,7 +86,7 @@
 					{/if}
 				</div>
 			</div>
-			<div class="login-hero"><img src="src/tree.jpg" alt="" /></div>
+			<div class="login-hero"><img src={tree} alt="" /></div>
 		</div>
 	</div>
 </div>

@@ -4,7 +4,7 @@
 	import { getAuth, signOut } from 'firebase/auth';
 	import { onMount } from 'svelte';
 	import { blur, fly } from 'svelte/transition';
-
+	import tree from '$lib/assets/tree.jpg';
 	let ready = false;
 	onMount(() => (ready = true));
 	const auth = getAuth();
@@ -25,7 +25,7 @@
 </script>
 
 <div class="hero" in:blur={{ amount: 10, duration: 1000 }}>
-	<img src="src/tree.jpg" alt="" />
+	<img src={tree} alt="" />
 	{#if ready}
 		<div class="hero-text" in:fly={{ delay: 1000, duration: 1000, y: 200 }}>
 			<h3><Type /></h3>
