@@ -38,54 +38,56 @@
 	let col = '';
 </script>
 
-<div class="contain">
-	<div class="login">
-		<div class="card">
-			<div class="login-form">
-				<h5 class="card-title">{title}</h5>
-				<form on:submit|preventDefault={login}>
-					<div class="emailfield">
-						<label for="emailInput" class="form-label" class:red={col === 'email'}
-							>Email address</label
-						>
-						<div class="form">
-							<input
-								on:click={() => (col = 'email')}
-								type="email"
-								class="form-control"
-								id="emailInput"
-								aria-describedby="emailHelp"
-								placeholder="Email Address"
-							/>
+<div class="body">
+	<div class="contain">
+		<div class="login">
+			<div class="card">
+				<div class="login-form">
+					<h5 class="card-title">{title}</h5>
+					<form on:submit|preventDefault={login}>
+						<div class="emailfield">
+							<label for="emailInput" class="form-label" class:red={col === 'email'}
+								>Email address</label
+							>
+							<div class="form">
+								<input
+									on:click={() => (col = 'email')}
+									type="email"
+									class="form-control"
+									id="emailInput"
+									aria-describedby="emailHelp"
+									placeholder="Email Address"
+								/>
+							</div>
 						</div>
-					</div>
-					<div class="passfield">
-						<label for="passInput" class="form-label" class:red={col === 'pass'}>Password</label>
-						<div class="form">
-							<input
-								on:click={() => (col = 'pass')}
-								type="password"
-								class="form-control"
-								id="passInput"
-								placeholder="Password"
-							/>
+						<div class="passfield">
+							<label for="passInput" class="form-label" class:red={col === 'pass'}>Password</label>
+							<div class="form">
+								<input
+									on:click={() => (col = 'pass')}
+									type="password"
+									class="form-control"
+									id="passInput"
+									placeholder="Password"
+								/>
+							</div>
 						</div>
-					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
-				</form>
-				{#if title == 'Login'}
-					<p class="form-text">
-						Not a user? <a href="/signup" class="card-link">Sign Up</a>
-					</p>
-				{/if}
-				{#if title != 'Login'}
-					<div id="emailHelp" class="form-text">
-						We'll never share<br /> your email with anyone else.
-					</div>
-				{/if}
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+					{#if title == 'Login'}
+						<p class="form-text">
+							Not a user? <a href="/signup" class="card-link">Sign Up</a>
+						</p>
+					{/if}
+					{#if title != 'Login'}
+						<div id="emailHelp" class="form-text">
+							We'll never share<br /> your email with anyone else.
+						</div>
+					{/if}
+				</div>
 			</div>
+			<div class="login-hero"><img src="src/tree.jpg" alt="" /></div>
 		</div>
-		<div class="login-hero"><img src="src/tree.jpg" alt="" /></div>
 	</div>
 </div>
 
@@ -94,6 +96,7 @@
 		max-width: 100%;
 		height: 100%;
 		object-fit: cover;
+		border-radius: 1rem;
 	}
 	.card {
 		height: 50vh;
@@ -135,7 +138,6 @@
 		outline: none;
 		background-color: rgb(255, 126, 180);
 		color: var(--text1);
-		font-weight: 700;
 		box-shadow: 0 0 1rem var(--main);
 	}
 	.red {
@@ -203,5 +205,9 @@
 		.card-title {
 			font-size: 1.5rem;
 		}
+	}
+	.body {
+		height: 100vh;
+		background-color: rgba(91, 80, 111, 0.678);
 	}
 </style>

@@ -2,6 +2,11 @@
 	import Type from './layout/type.svelte';
 	import { isLoggedIn } from '/src/routes/stores/authStore';
 	import { getAuth, signOut } from 'firebase/auth';
+	import { onMount } from 'svelte';
+	import { blur, fly } from 'svelte/transition';
+
+	let ready = false;
+	onMount(() => (ready = true));
 	const auth = getAuth();
 	const logout = () => {
 		signOut(auth)
@@ -15,21 +20,30 @@
 	};
 </script>
 
-<div class="hero">
+<div class="hero" in:blur={{ amount: 10, duration: 1000 }}>
 	<img src="src/tree.jpg" alt="" />
-	<div class="hero-text">
-		<h3><Type /></h3>
-	</div>
-	<div class="butt-contain">
-		{#if $isLoggedIn}
-			<a on:click|preventDefault={logout} href="/login"><button class="butt">Sign Out</button></a><a
-				href="#down"><button class="butt">Start</button></a
-			>
-		{/if}
-		{#if !$isLoggedIn}
-			<a href="/login"><button class="butt">Login</button></a>
-		{/if}
-	</div>
+	{#if ready}
+		<div class="hero-text" in:fly={{ delay: 1000, duration: 1000, y: 200 }}>
+			<h3><Type /></h3>
+		</div>
+		<div class="butt-contain" in:fly={{ delay: 1000, duration: 1000, y: 200 }}>
+			{#if $isLoggedIn}
+				<a on:click|preventDefault={logout} href="/"><button class="butt">Sign Out</button></a><a
+					href="#down"><button class="butt">Start</button></a
+				><a href="/"
+					><button class="butt" in:fly={{ delay: 1000, duration: 1000, y: 200 }}>About</button></a
+				>
+				<a href="/"
+					><button class="butt" in:fly={{ delay: 1000, duration: 1000, y: 200 }}>Contact</button></a
+				>
+			{/if}
+			{#if !$isLoggedIn}
+				<a href="/login"
+					><button class="butt" in:fly={{ delay: 1000, duration: 1000, y: 200 }}>Login</button></a
+				>
+			{/if}
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -56,8 +70,10 @@
 	}
 	.butt-contain {
 		z-index: 1;
-		display: flex;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
+		margin-top: 1.3rem;
 	}
 	.butt {
 		padding: 1rem;
@@ -75,7 +91,10 @@
 			font-size: 3.5rem;
 		}
 		.butt {
-			width: 10rem;
+			width: 12rem;
+		}
+		.butt-contain {
+			grid-template-columns: none;
 		}
 	}
 	.butt:hover {

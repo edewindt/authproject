@@ -2,7 +2,7 @@
 	export let label;
 </script>
 
-<li><a href="src/pages/{label.toLowerCase()}.svelte">{label}</a></li>
+<li><a href="#{label.toLowerCase()}">{label}</a></li>
 
 <style>
 	li {

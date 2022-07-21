@@ -6,6 +6,8 @@
 	import { goto } from '$app/navigation';
 	import Navbar from '$lib/components/layout/navbar.svelte';
 	import { isLoggedIn } from './stores/authStore';
+	let ready = false;
+	onMount(() => (ready = true));
 
 	onMount(() => {
 		const auth = getAuth();
@@ -21,8 +23,10 @@
 	});
 </script>
 
-<div class="stick"><Navbar /></div>
-<slot />
+{#if ready}
+	<div class="stick"><Navbar /></div>
+	<slot />
+{/if}
 
 <style>
 	.stick {
