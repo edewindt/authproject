@@ -18,6 +18,10 @@
 				console.error(error);
 			});
 	};
+	let style;
+	if (!$isLoggedIn) {
+		style = 'display:flex; justify-content:center';
+	}
 </script>
 
 <div class="hero" in:blur={{ amount: 10, duration: 1000 }}>
@@ -26,7 +30,7 @@
 		<div class="hero-text" in:fly={{ delay: 1000, duration: 1000, y: 200 }}>
 			<h3><Type /></h3>
 		</div>
-		<div class="butt-contain" in:fly={{ delay: 1000, duration: 1000, y: 200 }}>
+		<div class="butt-contain" {style} in:fly={{ delay: 1000, duration: 1000, y: 200 }}>
 			{#if $isLoggedIn}
 				<a on:click|preventDefault={logout} href="/"><button class="butt">Sign Out</button></a><a
 					href="#down"><button class="butt">Start</button></a
@@ -74,6 +78,7 @@
 		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
 		margin-top: 1.3rem;
+		justify-content: center;
 	}
 	.butt {
 		padding: 1rem;

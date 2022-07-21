@@ -55,10 +55,6 @@
 		transition: 0.3s;
 		cursor: pointer;
 	}
-	/* span::before {
-		content: '\a';
-		white-space: pre;
-	} */
 	span:hover {
 		color: red;
 	}
